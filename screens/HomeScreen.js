@@ -1,16 +1,33 @@
 import { View, Text, SafeAreaView, Image, StyleSheet, Platform, TextInput, ScrollView } from 'react-native'
-import React, { useLayoutEffect } from 'react'
+import React, { useLayoutEffect, useState, useEffect } from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { ChevronDownIcon, UserIcon, MagnifyingGlassIcon, AdjustmentsHorizontalIcon  } from "react-native-heroicons/outline";
 import Category from '../components/Category';
 import Feature from '../components/Feature';
-
-
+import client from '../sanity'
 
 
 
 const HomeScreen = () => {
+
+  const [featureCate,setFeatureCate] = useState([])
+
   const navigation = useNavigation()
+
+  useEffect(()=>{
+    client.fetch(`
+    *[_type == 'featured']{
+      ...,
+      resturants[]->{
+        ...,
+        dishes[]->
+      }
+    }
+    `).then((data)=>{
+      setFeatureCate(data)
+    })
+  },[])
+
 
   useLayoutEffect(()=>{
     navigation.setOptions({
@@ -61,9 +78,9 @@ const HomeScreen = () => {
     <ScrollView contentContainerStyle={{padding:10}} className="bg-gray-100">
           {/* Categories */}
           <Category/>
-          <Feature title="Featured" description="This is description"/>
-          <Feature title="Tasty Discounts" description="This is description"/>
-          <Feature title="Offers near you!" description="This is description"/>
+          {featureCate && featureCate.map(category=>{
+            return <Feature key={category._id} id={category._id} title={category.name} description={category.short_description}/>
+          })}
           {/* Feature */}
     </ScrollView>
     {/* Scroll View */}

@@ -8,7 +8,7 @@ A simple food delivery mobile application. Users can view foods, restaurants and
 
 ## Getting Started
 ```
-git clone git@github.com:Htetaungkyaw71/Ecommerce.git
+git clone git@github.com:Htetaungkyaw71/Delivery.git
 ```
 
 ### Technologies

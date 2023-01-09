@@ -1,9 +1,9 @@
-import { View, Text, TouchableOpacity, Image } from 'react-native'
-import { StarIcon, MapIcon } from "react-native-heroicons/outline";
+import { View, Text,TouchableOpacity,Image } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native'
+import { MapIcon, StarIcon } from 'react-native-heroicons/outline'
 
-const FeatureCard = ({
+const SearchRestaurant = ({
     id,
     imgUrl,
     title,
@@ -11,8 +11,6 @@ const FeatureCard = ({
     address,
     short_description,
     dishes,
-    long,
-    lat
 }) => {
   const navigation = useNavigation()
   return (
@@ -26,8 +24,6 @@ const FeatureCard = ({
         address,
         short_description,
         dishes,
-        long,
-        lat
       })
     }
 
@@ -39,7 +35,7 @@ const FeatureCard = ({
           <View className="flex-row items-center space-x-2 pt-2">
             <StarIcon size={20} color="#00DDBB"/>
             <Text className="text-xs text-gray-500">
-              <Text className="text-[#00DDBB]">
+              <Text className="text-green-300">
               {rating}
               </Text>
             </Text>
@@ -55,4 +51,4 @@ const FeatureCard = ({
   )
 }
 
-export default FeatureCard
+export default SearchRestaurant

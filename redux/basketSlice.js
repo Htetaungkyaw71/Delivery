@@ -19,11 +19,7 @@ const basketSlice = createSlice({
       }else {
         console.log("you can't decrase the number")
       }
-
       state.items = newItems
- 
-
-
     },
   },
 })

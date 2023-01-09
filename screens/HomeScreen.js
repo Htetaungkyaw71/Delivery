@@ -102,7 +102,6 @@ const HomeScreen = () => {
                     <View>
                         <Text className="font-bold text-xl">Search results : {search.length}</Text>
                     </View>
-                    {/* <ArrowRightIcon size={30} color="#00BBDD" /> */}
                 </View>
               <ScrollView contentContainerStyle={{paddingTop:10}}
                    horizontal

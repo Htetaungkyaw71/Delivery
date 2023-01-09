@@ -10,14 +10,14 @@ const DeliveryScreen = () => {
     const navigation = useNavigation()
   return (
     <View className="bg-[#00DDBB] flex-1">
-        <SafeAreaView style={styles.safeArea} className="mt-3 z-50">
+        <SafeAreaView  className="mt-5 z-50">
             <View className="flex-row justify-between px-4 p-5">
                 <TouchableOpacity onPress={()=>navigation.navigate("Home")}>
                     <XCircleIcon size={30} color="white"/>
                 </TouchableOpacity>
                 <Text className="font-bold text-white">Order Help</Text>
             </View>
-            <View className="space-y-2 p-5 rounded-lg bg-white mx-5">
+            <View className="space-y-2 p-5 rounded-lg shadow-md  z-50 bg-white mx-5">
                 <Text className="text-gray-400 font-bold">Estimated Arrvial</Text>
                 <Text className="text-3xl font-bold">35-45 Minutes</Text>
                 <Progress.Bar progress={0.3} width={200} indeterminate={true} color="#00DDBB"  />
@@ -28,8 +28,8 @@ const DeliveryScreen = () => {
             initialRegion={{
             latitude: 37.78825,
             longitude: -122.4324,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitudeDelta: 0.05,
+            longitudeDelta: 0.05,
             }}
             className="flex-1 -mt-10 z-0"
             mapType='mutedStandard'
